@@ -1,0 +1,26 @@
+[INFO] Scanning for projects...
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building testeMvc 0.0.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.1:tree (default-cli) @ testeMvc ---
+[INFO] testeMvc:testeMvc:war:0.0.1-SNAPSHOT
+[INFO] +- org.springframework:spring-web:jar:3.1.0.RELEASE:compile
+[INFO] |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  +- org.springframework:spring-beans:jar:3.1.0.RELEASE:compile
+[INFO] |  \- org.springframework:spring-context:jar:3.1.0.RELEASE:compile
+[INFO] |     \- org.springframework:spring-aop:jar:3.1.0.RELEASE:compile
+[INFO] +- org.springframework:spring-core:jar:3.1.0.RELEASE:compile
+[INFO] |  \- org.springframework:spring-asm:jar:3.1.0.RELEASE:compile
+[INFO] +- org.springframework:spring-webmvc:jar:3.1.0.RELEASE:compile
+[INFO] |  +- org.springframework:spring-context-support:jar:3.1.0.RELEASE:compile
+[INFO] |  \- org.springframework:spring-expression:jar:3.1.0.RELEASE:compile
+[INFO] \- javax.servlet:javax.servlet-api:jar:3.1.0:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 3.738s
+[INFO] Finished at: Tue Oct 07 16:33:47 BRT 2014
+[INFO] Final Memory: 7M/93M
+[INFO] ------------------------------------------------------------------------

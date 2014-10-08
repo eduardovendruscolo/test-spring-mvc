@@ -9,7 +9,6 @@ public class OlaMundoController {
 	@RequestMapping("/olaMundoSpring")
 	public String execute() {
 		System.out.println("executando lógica com Spring");
-		//teste de versionamento MANO!!!!
 		return "Ok";
 	}
 

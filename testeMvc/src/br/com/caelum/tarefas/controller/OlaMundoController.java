@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class OlaMundoController {
 	
-	@RequestMapping("/olaMundoSpring")
+	@RequestMapping("olaMundoSpring")
 	public String execute() {
 		System.out.println("executando lógica com Spring");
 		return "Ok";

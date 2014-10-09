@@ -9,7 +9,7 @@ public class OlaMundoController {
 	@RequestMapping("olaMundoSpring")
 	public String execute() {
 		System.out.println("executando lógica com Spring");
-		return "Ok";
+		return "ok";
 	}
 
 }

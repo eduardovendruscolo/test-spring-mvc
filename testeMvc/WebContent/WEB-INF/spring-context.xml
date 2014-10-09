@@ -10,7 +10,10 @@
     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
 	<context:component-scan base-package="br.com.caelum.tarefas" />
+
 	<mvc:annotation-driven />
+
+	<mvc:resources mapping="/testeMvc/**" location="/recursos/" />
 
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

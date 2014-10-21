@@ -18,54 +18,81 @@ import org.hibernate.annotations.GenerationTime;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
-@Entity @Table(name="spring_usuario", schema="DBA")
+@Entity
+@Table(name = "spring_usuario", schema = "DBA")
 public class Usuario implements java.io.Serializable {
-	
-	@Id @Generated(GenerationTime.INSERT) 
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id", unique=true) 
+
+	@Id
+	@Generated(GenerationTime.INSERT)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id", unique = true)
 	protected long id;
-		
-	public long getId() {return id;}
-	public void setId(long valor) {this.id = valor;}
-	
-	@NotNull @NotEmpty
-	@Column(name="nome", nullable=false, length=128)
-	private String nome;
-	@Email(message="Isto não é e-mail") @NotNull @NotEmpty
-	@Column(name="email", nullable=false, length=128, unique=true)
-	private String email;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long valor) {
+		this.id = valor;
+	}
+
 	@NotNull
-	@Column(name="data_cadastro", nullable=false) @Temporal(TemporalType.TIMESTAMP)
+	@NotEmpty
+	@Column(name = "nome", nullable = false, length = 128)
+	private String nome;
+	
+	@Email(message = "Isto não é e-mail")
+	@NotNull
+	@NotEmpty
+	@Column(name = "email", nullable = false, length = 128, unique = true)
+	private String email;
+	
+	@NotNull
+	@Column(name = "data_cadastro", nullable = false)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dataCadastro = new Date();
-	@NotNull @NotEmpty
-	@Size(min=8, max=32, message="Login muito curto ou muito longo") 
-	@Column(name="login", nullable=false, unique=true, length=64)
+	
+	@NotNull
+	@NotEmpty
+	@Size(min = 8, max = 32, message = "Login muito curto ou muito longo")
+	@Column(name = "login", nullable = false, unique = true, length = 64)
 	private String login;
-	@Column(name="twitter", nullable=true, length=64, unique=true)
+	
+	@Column(name = "twitter", nullable = true, length = 64, unique = true)
 	private String twitter;
-	
-	
-	
-	
+
 	private transient String senha;
-	@Column(name="ultimo_login", nullable=true) @Temporal(TemporalType.TIMESTAMP)
+	
+	@Column(name = "ultimo_login", nullable = true)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date ultimoLogin;
-	
-	
-	@Column(name="hash_senha", nullable=false, length=128)
+
+	@Column(name = "hash_senha", nullable = false, length = 128)
 	private String hashSenha;
-	
-	public String getHashSenha() {return hashSenha;}
-	public void setHashSenha(String valor) {hashSenha = valor;}
-	
-	
-	
-	public Date getUltimoLogin() {return ultimoLogin;}
-	public void setUltimoLogin(Date data) {ultimoLogin = data;}
-	
-	public String getTwitter() {return twitter;}
-	public void setTwitter(String valor) {twitter = valor;}
+
+	public String getHashSenha() {
+		return hashSenha;
+	}
+
+	public void setHashSenha(String valor) {
+		hashSenha = valor;
+	}
+
+	public Date getUltimoLogin() {
+		return ultimoLogin;
+	}
+
+	public void setUltimoLogin(Date data) {
+		ultimoLogin = data;
+	}
+
+	public String getTwitter() {
+		return twitter;
+	}
+
+	public void setTwitter(String valor) {
+		twitter = valor;
+	}
 
 	public String getLogin() {
 		return login;
@@ -80,7 +107,8 @@ public class Usuario implements java.io.Serializable {
 	}
 
 	public void setSenha(String senha) {
-		setHashSenha(org.apache.commons.codec.digest.DigestUtils.sha256Hex(senha));
+		setHashSenha(org.apache.commons.codec.digest.DigestUtils
+				.sha256Hex(senha));
 		this.senha = senha;
 	}
 
@@ -107,7 +135,5 @@ public class Usuario implements java.io.Serializable {
 	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-	
-	
 
 }

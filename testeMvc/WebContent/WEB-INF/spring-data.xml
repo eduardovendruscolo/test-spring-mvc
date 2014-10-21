@@ -48,11 +48,7 @@
 
 		<property name="annotatedClasses">
 			<array>
-				<value>br.com.itexto.springforum.entidades.Usuario</value>
-				<value>br.com.itexto.springforum.entidades.PermissaoUsuario</value>
-				<value>br.com.itexto.springforum.entidades.Assunto</value>
-				<value>br.com.itexto.springforum.entidades.Topico</value>
-
+				<value>br.com.rachacontas.entidades.Usuario</value>
 			</array>
 		</property>
 
@@ -64,7 +60,7 @@
 	</tx:advice>
 	<aop:config>
 		<aop:advisor advice-ref="txAdvice"
-			pointcut="execution(* br.com.itexto.springforum.dao.hibernate.HB*.*(..))" />
+			pointcut="execution(* br.com.rachacontas.dao.hibernate.HB*.*(..))" />
 	</aop:config>
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">

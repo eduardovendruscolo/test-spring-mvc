@@ -19,7 +19,7 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table(name = "spring_usuario", schema = "DBA")
+@Table(name = "usuario", schema = "DBA")
 public class Usuario implements java.io.Serializable {
 
 	@NotNull

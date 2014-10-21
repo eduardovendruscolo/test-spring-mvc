@@ -10,38 +10,44 @@ import org.springframework.transaction.annotation.Transactional;
 
 import br.com.rachacontas.dao.DAOBase;
 
-@Transactional(propagation=Propagation.SUPPORTS)
+@Transactional(propagation = Propagation.SUPPORTS)
 public abstract class HBDAO<T> implements DAOBase<T> {
 
-	@Autowired
-	private SessionFactory sessionFactory;
+    @Autowired
+    private SessionFactory sessionFactory;
 
-	public void excluir(T objeto) {
-		getSession().delete(objeto);
-	}
-	public T get(Long id) {
-		return (T) getSession().get(getClazz(), id);
-	}
+    @Override
+    public void excluir(T objeto) {
+        getSession().delete(objeto);
+    }
 
-	protected abstract Class getClazz();
+    @Override
+    public T get(Long id) {
+        return (T) getSession().get(getClazz(), id);
+    }
 
-	protected Session getSession() {
-		return getSessionFactory().getCurrentSession();
-	}
+    protected abstract Class getClazz();
 
+    protected Session getSession() {
+        return getSessionFactory().getCurrentSession();
+    }
 
-	public SessionFactory getSessionFactory() {return sessionFactory;}
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
 
-	public List<T> list(int offset, int max) {
-		return getSession().createCriteria(getClazz())
-				.setMaxResults(max)
-				.setFirstResult(offset).list();
-	}
+    @Override
+    public List<T> list(int offset, int max) {
+        return getSession().createCriteria(getClazz()).setMaxResults(max).setFirstResult(offset).list();
+    }
 
-	public void persistir(T objeto) {
-		getSession().saveOrUpdate(objeto);
-	}
+    @Override
+    public void persistir(T objeto) {
+        getSession().saveOrUpdate(objeto);
+    }
 
-	public void setSessionFactory(SessionFactory sf) {sessionFactory = sf;}
+    public void setSessionFactory(SessionFactory sf) {
+        sessionFactory = sf;
+    }
 
 }

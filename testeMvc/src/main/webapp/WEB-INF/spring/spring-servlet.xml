@@ -11,7 +11,7 @@
 	<mvc:annotation-driven />
 
 	<!-- Busca componentes do tipo @Controller dentro do pacote abaixo -->
-	<context:component-scan base-package="br.com.rachacontas" />
+	<context:component-scan base-package="br.com.rachacontas.controladores" />
 
 	<!-- Configura o controlador que retorna recursos estáticos de nossa aplicação 
 		Será também passado como parametro o parâmetro HTTP de cacheamento expires-to 
@@ -23,16 +23,14 @@
 
 
 	<!-- O view resolver usado em nosso 'Ola Mundo' -->
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/views/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-	</bean>
-
-
+	<!-- <bean id="viewResolver" -->
+	<!-- class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
+	<!-- <property name="prefix"> -->
+	<!-- <value>/views/</value> -->
+	<!-- </property> -->
+	<!-- <property name="suffix"> -->
+	<!-- <value>.jsp</value> -->
+	<!-- </property> -->
+	<!-- </bean> -->
 
 </beans>

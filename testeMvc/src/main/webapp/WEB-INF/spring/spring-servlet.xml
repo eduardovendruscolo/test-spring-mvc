@@ -10,8 +10,6 @@
 	<!-- Habilitamos o Spring MVC a funcionar baseado em anotações -->
 	<mvc:annotation-driven />
 
-	<!-- Busca componentes do tipo @Controller dentro do pacote abaixo -->
-	<context:component-scan base-package="br.com.rachacontas.controladores" />
 
 	<!-- Configura o controlador que retorna recursos estáticos de nossa aplicação 
 		Será também passado como parametro o parâmetro HTTP de cacheamento expires-to 
@@ -32,5 +30,13 @@
 	<!-- <value>.jsp</value> -->
 	<!-- </property> -->
 	<!-- </bean> -->
+	
+	<!-- Habilitando upload de arquivos -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="50000000"/>
+	</bean>
+
+	<!-- Busca componentes do tipo @Controller dentro do pacote abaixo -->
+	<context:component-scan base-package="br.com.rachacontas.controladores" />
 
 </beans>
